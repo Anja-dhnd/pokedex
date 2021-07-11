@@ -17,6 +17,7 @@ body {
   justify-content: center;
   margin: 0;
   /* CARDS */
+  /* ANIMATION INPUT */
 }
 body h1 {
   padding: 30px 0;
@@ -60,11 +61,12 @@ body .researchPoke button:hover {
   box-shadow: 5px 5px 20px 0px rgba(0, 0, 0, 0.5);
 }
 body .container {
-  width: 70%;
-  max-width: 1100px;
-  height: auto;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: space-between;
+  justify-content: center;
   margin: 0 auto;
-  /* ANIMATION INPUT */
+  max-width: 1200px;
 }
 body .container .listPoke {
   display: flex;
@@ -78,17 +80,26 @@ body .container .listPoke {
 }
 body .container .listPoke li {
   transition: 0.5s ease-in-out;
-  margin-top: 3.5%;
-  margin-right: 2.5%;
   padding: 5%;
   border-radius: 5px;
+  background-color: #eee;
+  border-radius: 10px;
+  box-shadow: 0 3px 15px rgba(100, 100, 100, 0.5);
+  margin: 10px;
+  padding: 20px;
+  text-align: center;
 }
 body .container .listPoke li:hover {
   box-shadow: 5px 5px 20px 0px rgba(0, 0, 0, 0.5);
   transform: translateY(-10px);
 }
-body .container .researchPoke:focus-within label,
-body .container .researchPoke.active-input label {
+body .container .listPoke li .name,
+body .container .listPoke li .id {
+  margin: 15px 0 7px;
+  letter-spacing: 1px;
+}
+body .researchPoke:focus-within label,
+body .researchPoke .active-input label {
   top: -15px;
   padding-left: 5px;
 }/*# sourceMappingURL=style.css.map */

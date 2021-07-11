@@ -79,13 +79,22 @@ body {
       margin-bottom: 50%;
       li {
         transition: 0.5s ease-in-out;
-        margin-top: 3.5%;
-        margin-right: 2.5%;
         padding: 5%;
         border-radius: 5px;
+        background-color: #eee;
+        border-radius: 10px;
+        box-shadow: 0 3px 15px rgba(100, 100, 100, 0.5);
+        margin: 10px;
+        padding: 20px;
+        text-align: center;
         &:hover {
           box-shadow: 5px 5px 20px 0px rgba(0, 0, 0, 0.5);
           transform: translateY(-10px);
+        }
+        .name,
+        .id {
+          margin: 15px 0 7px;
+          letter-spacing: 1px;
         }
       }
     }
@@ -94,7 +103,7 @@ body {
   /* ANIMATION INPUT */
 
   .researchPoke:focus-within label,
-  .researchPoke.active-input label {
+  .researchPoke .active-input label {
     top: -15px;
     padding-left: 5px;
   }
