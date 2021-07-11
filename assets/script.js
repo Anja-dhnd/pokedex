@@ -118,13 +118,40 @@ window.addEventListener("scroll", () => {
 });
 
 let index = 21;
+
 function addPoke(nb) {
   if (index > 151) {
     return;
   }
   const arrToAdd = allPokemon.slice(index, index + nb);
+  console.log(index, index + nb);
   createCard(arrToAdd);
   index += nb;
+}
+
+// SEARCH BAR
+
+searchInput.addEventListener("keyup", research);
+
+function research() {
+  if (index < 151) {
+    addPoke(130);
+    //allows to load the 130 others when typing
+  }
+  let filter, allLi, titleValue, allTitles;
+  filter = searchInput.value.toUpperCase();
+  allLi = document.querySelectorAll("li");
+  allTitles = document.querySelectorAll("li > h5");
+
+  for (i = 0; i < allLi.length; i++) {
+    titleValue = allTitles[i].innerText;
+
+    if (titleValue.toUpperCase().indexOf(filter) > -1) {
+      allLi[i].style.display = "flex";
+    } else {
+      allLi[i].style.display = "none";
+    }
+  }
 }
 
 // ANIMATION INPUT. Va déclencher event input dès qu'on write dans l'input.

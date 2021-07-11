@@ -16,6 +16,7 @@ body {
   align-items: center;
   justify-content: center;
   margin: 0;
+  /* CARDS */
   /* ANIMATION INPUT */
 }
 body h1 {
@@ -48,8 +49,31 @@ body .researchPoke button {
   margin-left: 5px;
   padding: 15px;
 }
+body .container {
+  width: 70%;
+  max-width: 1100px;
+  height: auto;
+  margin: 0 auto;
+}
+body .container ul {
+  list-style-type: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+body .container ul li {
+  width: 250px;
+  height: auto;
+  padding: 15px;
+  margin: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
 body .researchPoke:focus-within label,
 body .researchPoke.active-input label {
   top: -15px;
   padding-left: 5px;
-} /*# sourceMappingURL=style.css.map */
+}/*# sourceMappingURL=style.css.map */
