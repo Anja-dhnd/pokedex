@@ -103,6 +103,30 @@ function createCard(arr) {
   }
 }
 
+// INFINITE SCROLL
+// scrollTop = scroll from the top
+// scrollHeight = total scroll
+// clientHeight = window height, visible part
+
+window.addEventListener("scroll", () => {
+  const { scrollTop, scrollHeight, clientHeight } = document.documentElement;
+  //console.log(scrollTop, scrollHeight, clientHeight);
+
+  if (clientHeight + scrollTop >= scrollHeight - 20) {
+    addPoke(6); //add a row of 6 when scrolling
+  }
+});
+
+let index = 21;
+function addPoke(nb) {
+  if (index > 151) {
+    return;
+  }
+  const arrToAdd = allPokemon.slice(index, index + nb);
+  createCard(arrToAdd);
+  index += nb;
+}
+
 // ANIMATION INPUT. Va déclencher event input dès qu'on write dans l'input.
 // e = notre obj qui contient propriétés de l'event. Target = input, value = ce qui se trouve dans input
 
