@@ -18,7 +18,12 @@ body {
   justify-content: center;
   margin: 0;
   h1 {
-    padding: 50px 0;
+    padding: 30px 0;
+    font-size: 50px;
+    color: white;
+    text-shadow: 3px 2px 0px #000000;
+    width: 100%;
+    text-align: center;
   }
   .researchPoke {
     max-width: 700px;
@@ -45,31 +50,43 @@ body {
     button {
       margin-left: 5px;
       padding: 15px;
+      border: none;
+      font-size: 15px;
+      transition: 0.5s ease-in-out;
+      &:hover {
+        box-shadow: 5px 5px 20px 0px rgba(0, 0, 0, 0.5);
+      }
     }
   }
 
   /* CARDS */
 
   .container {
-    width: 70%;
-    max-width: 1100px;
-    height: auto;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: space-between;
+    justify-content: center;
     margin: 0 auto;
-    ul {
-      list-style-type: none;
+    max-width: 1200px;
+    .listPoke {
       display: flex;
+      flex-direction: row;
       justify-content: center;
-      align-items: center;
       flex-wrap: wrap;
+      list-style-type: none;
+      width: 500px;
+      margin-top: 5%;
+      margin-bottom: 50%;
       li {
-        width: 250px;
-        height: auto;
-        padding: 15px;
-        margin: 5px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        flex-direction: column;
+        transition: 0.5s ease-in-out;
+        margin-top: 3.5%;
+        margin-right: 2.5%;
+        padding: 5%;
+        border-radius: 5px;
+        &:hover {
+          box-shadow: 5px 5px 20px 0px rgba(0, 0, 0, 0.5);
+          transform: translateY(-10px);
+        }
       }
     }
   }

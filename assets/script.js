@@ -4,6 +4,8 @@ let endArr = [];
 // input a pas de nom dans html donc reprendre class de form
 const searchInput = document.querySelector(".researchPoke input");
 const listPoke = document.querySelector(".listPoke");
+const loading = document.querySelector(".loader");
+
 const types = {
   fire: "#FDDFDF",
   grass: "#DEFDE0",
@@ -27,13 +29,12 @@ function fetchPokemonBase() {
   fetch("https://pokeapi.co/api/v2/pokemon?limit=151")
     .then((answer) => answer.json())
     .then((allPoke) => {
-      //   console.log(allPoke);
+      // console.log(allPoke);
       allPoke.results.forEach((pokemon) => {
-        fetchPokemonComplet(pokemon); // for each pokemon we execute the funct
+        fetchPokemonComplet(pokemon);
       });
     });
 }
-
 fetchPokemonBase();
 
 function fetchPokemonComplet(pokemon) {
@@ -44,7 +45,7 @@ function fetchPokemonComplet(pokemon) {
   fetch(url)
     .then((answer) => answer.json())
     .then((pokeData) => {
-      //console.log(pokeData);
+      // console.log(pokeData);
       // on fetch l'img et le type depuis l'url de l'API
 
       objPokemonFull.pic = pokeData.sprites.front_default;
@@ -56,7 +57,7 @@ function fetchPokemonComplet(pokemon) {
       fetch(`https://pokeapi.co/api/v2/pokemon-species/${nameP}`)
         .then((answer) => answer.json())
         .then((pokeData) => {
-          //console.log(pokeData);
+          // console.log(pokeData);
 
           objPokemonFull.name = pokeData.names[8].name;
           allPokemon.push(objPokemonFull);
@@ -71,27 +72,26 @@ function fetchPokemonComplet(pokemon) {
                 return a.id - b.id;
               })
               .slice(0, 21);
+            // console.log(endArr);
 
             createCard(endArr);
+            chargement.style.display = "none";
           }
         });
     });
 }
 
-// CARD CREATION - création d'elements DOM
+// CARD CREATION - DOM elements
 
 function createCard(arr) {
-  for (let i = 0; 1 < arr.length; i++) {
+  for (let i = 0; i < arr.length; i++) {
     const card = document.createElement("li");
-    let color = types[arr[i].type];
-    card.style.background = color;
-
+    let couleur = types[arr[i].type];
+    card.style.background = couleur;
     const txtCard = document.createElement("h5");
     txtCard.innerText = arr[i].name;
-
     const idCard = document.createElement("p");
     idCard.innerText = `ID# ${arr[i].id}`;
-
     const imgCard = document.createElement("img");
     imgCard.src = arr[i].pic;
 
@@ -110,7 +110,6 @@ function createCard(arr) {
 
 window.addEventListener("scroll", () => {
   const { scrollTop, scrollHeight, clientHeight } = document.documentElement;
-  //console.log(scrollTop, scrollHeight, clientHeight);
 
   if (clientHeight + scrollTop >= scrollHeight - 20) {
     addPoke(6); //add a row of 6 when scrolling
@@ -129,7 +128,7 @@ function addPoke(nb) {
   index += nb;
 }
 
-// SEARCH BAR
+// SEARCH
 
 searchInput.addEventListener("keyup", research);
 
@@ -138,6 +137,7 @@ function research() {
     addPoke(130);
     //allows to load the 130 others when typing
   }
+
   let filter, allLi, titleValue, allTitles;
   filter = searchInput.value.toUpperCase();
   allLi = document.querySelectorAll("li");
