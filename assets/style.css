@@ -1,0 +1,55 @@
+@import url("https://fonts.googleapis.com/css?family=Lato:300,400&display=swap");
+*,
+::before,
+::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: #efefbb;
+  background: linear-gradient(to right, #d4d3dd, #efefbb);
+  font-family: "Lato", sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  /* ANIMATION INPUT */
+}
+body h1 {
+  padding: 50px 0;
+}
+body .researchPoke {
+  max-width: 700px;
+  min-width: 450px;
+  width: 70%;
+  margin: 30px auto;
+  display: flex;
+  position: relative;
+  font-size: 18px;
+}
+body .researchPoke input {
+  width: 100%;
+  padding: 15px;
+  border: none;
+  outline: none;
+  border-radius: 3px;
+}
+body .researchPoke label {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  padding-left: 8px;
+  transition: all 0.3s ease-in;
+}
+body .researchPoke button {
+  margin-left: 5px;
+  padding: 15px;
+}
+body .researchPoke:focus-within label,
+body .researchPoke.active-input label {
+  top: -15px;
+  padding-left: 5px;
+} /*# sourceMappingURL=style.css.map */
