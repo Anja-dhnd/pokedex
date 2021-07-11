@@ -27,7 +27,26 @@ function fetchPokemonComplet(pokemon) {
   fetch(url)
     .then((answer) => answer.json())
     .then((pokeData) => {
-      console.log(pokeData);
+      //console.log(pokeData);
+      // on fetch l'img et le type depuis l'url de l'API
+
+      objPokemonFull.pic = pokeData.sprites.front_default;
+      objPokemonFull.type = pokeData.types[0].type.name;
+
+      // fetch name from other url
+
+      fetch(`https://pokeapi.co/api/v2/pokemon-species/${nameP}`)
+        .then((answer) => answer.json())
+        .then((pokeData) => {
+          //console.log(pokeData);
+
+          objPokemonFull.name = pokeData.names[8].name;
+          allPokemon.push(objPokemonFull);
+
+          if (allPokemon.length === 151) {
+            console.log(allPokemon);
+          }
+        });
     });
 }
 
