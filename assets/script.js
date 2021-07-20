@@ -142,7 +142,7 @@ function research() {
   let filter, allLi, titleValue, allTitles;
   filter = searchInput.value.toUpperCase();
   allLi = document.querySelectorAll("li");
-  allTitles = document.querySelectorAll("li > h5");
+  allTitles = document.querySelectorAll("li");
 
   for (i = 0; i < allLi.length; i++) {
     titleValue = allTitles[i].innerText;
