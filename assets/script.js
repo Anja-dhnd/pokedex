@@ -75,7 +75,7 @@ function fetchPokemonComplet(pokemon) {
             // console.log(endArr);
 
             createCard(endArr);
-            chargement.style.display = "none";
+            loading.style.display = "none";
           }
         });
     });
@@ -86,8 +86,8 @@ function fetchPokemonComplet(pokemon) {
 function createCard(arr) {
   for (let i = 0; i < arr.length; i++) {
     const card = document.createElement("li");
-    let couleur = types[arr[i].type];
-    card.style.background = couleur;
+    let color = types[arr[i].type];
+    card.style.background = color;
     const txtCard = document.createElement("h5");
     txtCard.innerText = arr[i].name;
     const idCard = document.createElement("p");
@@ -102,6 +102,7 @@ function createCard(arr) {
     listPoke.appendChild(card);
   }
 }
+
 
 // INFINITE SCROLL
 // scrollTop = scroll from the top
@@ -145,6 +146,7 @@ function research() {
 
   for (i = 0; i < allLi.length; i++) {
     titleValue = allTitles[i].innerText;
+    
 
     if (titleValue.toUpperCase().indexOf(filter) > -1) {
       allLi[i].style.display = "flex";
@@ -164,3 +166,4 @@ searchInput.addEventListener("input", function (e) {
     e.target.parentNode.classList.remove("active-input");
   }
 });
+
