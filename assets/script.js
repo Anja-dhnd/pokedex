@@ -57,7 +57,7 @@ function fetchPokemonComplet(pokemon) {
       fetch(`https://pokeapi.co/api/v2/pokemon-species/${nameP}`)
         .then((answer) => answer.json())
         .then((pokeData) => {
-          // console.log(pokeData);
+          console.log(pokeData);
 
           objPokemonFull.name = pokeData.names[8].name;
           allPokemon.push(objPokemonFull);
@@ -176,3 +176,10 @@ searchInput.addEventListener("input", function (e) {
 document.querySelector("fullCard").addEventListener("click", () => {
   console.log("test");
 })
+
+function openPopup() {
+  let objPokemonFull = {};
+  
+  objPokemonFull.pic = pokeData.sprites.front_default;
+  objPokemonFull.id = pokeData.id;
+}
