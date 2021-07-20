@@ -85,8 +85,11 @@ function fetchPokemonComplet(pokemon) {
 
 function createCard(arr) {
   for (let i = 0; i < arr.length; i++) {
+    
     const card = document.createElement("li");
+    card.setAttribute("class", "fullCard");
     let color = types[arr[i].type];
+    let id = document.createElement("class")
     card.style.background = color;
     const txtCard = document.createElement("h5");
     txtCard.innerText = arr[i].name;
@@ -167,3 +170,9 @@ searchInput.addEventListener("input", function (e) {
   }
 });
 
+// OPEN CARDS
+
+
+document.querySelector("fullCard").addEventListener("click", () => {
+  console.log("test");
+})
