@@ -20,7 +20,7 @@ This is a personal mini web project realized during my free time. It is a reprod
 
 ## Snapshot
 
-![snapshot](https://raw.githubusercontent.com/Anja-dhnd/pokedex/main/assets/img/snapshot.jpeg.png)
+![snapshot](https://raw.githubusercontent.com/Anja-dhnd/pokedex/main/assets/img/snapshot.png)
 
 ## Built with
 
