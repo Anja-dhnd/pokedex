@@ -30,5 +30,5 @@ This is a personal mini web project realized during my free time. It is a reprod
 
 ## To-do
 
-- ~~ Correct card display after a research ~~
+- ~~Correct card display after a research ~~
 - Open card with pokemon details on click

@@ -25,9 +25,6 @@ const types = {
 
 // API call
 
-
-
-
 function fetchPokemonBase() {
   fetch("https://pokeapi.co/api/v2/pokemon?limit=151")
     .then((answer) => answer.json())
@@ -88,13 +85,12 @@ function fetchPokemonComplet(pokemon) {
 
 function createCard(arr) {
   for (let i = 0; i < arr.length; i++) {
-    
     const card = document.createElement("li");
     card.setAttribute("class", "fullCard");
     let color = types[arr[i].type];
-    let id = document.createElement("class")
+    let id = document.createElement("class");
     card.style.background = color;
-    const txtCard = document.createElement("h5");
+    const txtCard = document.createElement("h4");
     txtCard.innerText = arr[i].name;
     const idCard = document.createElement("p");
     idCard.innerText = `ID# ${arr[i].id}`;
@@ -108,7 +104,6 @@ function createCard(arr) {
     listPoke.appendChild(card);
   }
 }
-
 
 // INFINITE SCROLL
 // scrollTop = scroll from the top
@@ -152,7 +147,6 @@ function research() {
 
   for (i = 0; i < allLi.length; i++) {
     titleValue = allTitles[i].innerText;
-    
 
     if (titleValue.toUpperCase().indexOf(filter) > -1) {
       allLi[i].style.display = "flex";
@@ -175,14 +169,13 @@ searchInput.addEventListener("input", function (e) {
 
 // OPEN CARDS
 
-
 document.querySelector("fullCard").addEventListener("click", () => {
   console.log("test");
-})
+});
 
 function openPopup() {
   let objPokemonFull = {};
-  
+
   objPokemonFull.pic = pokeData.sprites.front_default;
   objPokemonFull.id = pokeData.id;
 }
