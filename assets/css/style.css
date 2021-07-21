@@ -7,7 +7,7 @@
 }
 
 body {
-  background: linear-gradient(to right, #EC9BBA, #87F2DD);
+  background: linear-gradient(to right, #ec9bba, #87f2dd);
   background-repeat: no-repeat;
   background-size: cover;
   font-family: "Lato", sans-serif;
@@ -67,7 +67,7 @@ body .container {
   align-items: space-between;
   justify-content: center;
   margin: 0 auto;
-  max-width: 1200px;
+  max-width: 1000px;
 }
 body .container .listPoke {
   display: flex;
@@ -75,19 +75,22 @@ body .container .listPoke {
   justify-content: center;
   flex-wrap: wrap;
   list-style-type: none;
-  width: 900px;
   margin-top: 5%;
   margin-bottom: 50%;
 }
 body .container .listPoke li {
+  height: auto;
+  padding: 15px;
+  margin: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
   transition: 0.5s ease-in-out;
-  padding: 5%;
   border-radius: 5px;
   background-color: #eee;
   border-radius: 10px;
   box-shadow: 0 3px 15px rgba(100, 100, 100, 0.5);
-  margin: 10px;
-  padding: 20px;
   text-align: center;
 }
 body .container .listPoke li:hover {
