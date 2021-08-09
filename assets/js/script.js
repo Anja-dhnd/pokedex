@@ -29,7 +29,7 @@ function fetchPokemonBase() {
   fetch("https://pokeapi.co/api/v2/pokemon?limit=151")
     .then((answer) => answer.json())
     .then((allPoke) => {
-      // console.log(allPoke);
+    
       allPoke.results.forEach((pokemon) => {
         fetchPokemonComplet(pokemon);
       });
@@ -45,34 +45,29 @@ function fetchPokemonComplet(pokemon) {
   fetch(url)
     .then((answer) => answer.json())
     .then((pokeData) => {
-      // console.log(pokeData);
-      // on fetch l'img et le type depuis l'url de l'API
-
+      
       objPokemonFull.pic = pokeData.sprites.front_default;
       objPokemonFull.type = pokeData.types[0].type.name;
       objPokemonFull.id = pokeData.id;
 
-      // fetch name from other url
 
       fetch(`https://pokeapi.co/api/v2/pokemon-species/${nameP}`)
         .then((answer) => answer.json())
         .then((pokeData) => {
-          console.log(pokeData);
+          
 
           objPokemonFull.name = pokeData.names[8].name;
           allPokemon.push(objPokemonFull);
 
           if (allPokemon.length === 151) {
-            //console.log(allPokemon);
-            // sort method takes an element A and substract element B.
-            // can be >, < or =. Depending on that, will be positioned before or after
-
+           
+            
             endArr = allPokemon
               .sort((a, b) => {
                 return a.id - b.id;
               })
               .slice(0, 21);
-            // console.log(endArr);
+            
 
             createCard(endArr);
             loading.style.display = "none";
@@ -106,15 +101,12 @@ function createCard(arr) {
 }
 
 // INFINITE SCROLL
-// scrollTop = scroll from the top
-// scrollHeight = total scroll
-// clientHeight = window height, visible part
 
 window.addEventListener("scroll", () => {
   const { scrollTop, scrollHeight, clientHeight } = document.documentElement;
 
   if (clientHeight + scrollTop >= scrollHeight - 20) {
-    addPoke(6); //add a row of 6 when scrolling
+    addPoke(6); 
   }
 });
 
@@ -137,7 +129,7 @@ searchInput.addEventListener("keyup", research);
 function research() {
   if (index < 151) {
     addPoke(130);
-    //allows to load the 130 others when typing
+
   }
 
   let filter, allLi, titleValue, allTitles;
@@ -156,8 +148,7 @@ function research() {
   }
 }
 
-// ANIMATION INPUT. Va déclencher event input dès qu'on write dans l'input.
-// e = notre obj qui contient propriétés de l'event. Target = input, value = ce qui se trouve dans input
+// ANIMATION INPUT. 
 
 searchInput.addEventListener("input", function (e) {
   if (e.target.value !== "") {
@@ -168,10 +159,6 @@ searchInput.addEventListener("input", function (e) {
 });
 
 // OPEN CARDS
-
-document.querySelector("fullCard").addEventListener("click", () => {
-  console.log("test");
-});
 
 function openPopup() {
   let objPokemonFull = {};
